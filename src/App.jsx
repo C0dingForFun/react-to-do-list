@@ -53,7 +53,7 @@ export default function App(){
       <h1 className="header">To-Dos</h1>
       <ul className="list">
         {/* this is where we will map over the todos array and display each item; and anything inside braces will run as javascript code*/}
-        {todos.length === 0 && "No To-Dos"}
+        {todos.length === 0 && "No To-Dos Yet"}
         {todos.map(todo =>{
           return (
             <li key={todo.id} className="my-2">
