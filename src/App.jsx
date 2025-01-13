@@ -24,7 +24,6 @@ export default function App(){
        if(todo.id === id){
          return {...todo, completed}
        }
-
        return todo
       })
     })
@@ -65,8 +64,7 @@ export default function App(){
               <button onClick={() => deleteTodo(todo.id)} className="btn btn-danger mx-1">Delete</button>
             </li>
           )
-        })}  
-        
+        })}
         </ul>
     </div>
   </div>
