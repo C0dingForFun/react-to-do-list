@@ -15,6 +15,8 @@ body{
     width:60vw;
     margin: auto;
     border-radius:20px;
+    color: rgb(186, 204, 211);
+    text-shadow: 2px 2px red;
     /* animation: border 2.5s ease infinite forwards; */
 }
 input{
@@ -37,7 +39,7 @@ input{
 }
 
 li{
-    
+    padding-top:5px;
     font-size:23px;
 }
 
