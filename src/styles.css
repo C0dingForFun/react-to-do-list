@@ -15,7 +15,7 @@ body{
     width:60vw;
     margin: auto;
     border-radius:20px;
-    color: rgb(186, 204, 211);
+    color: whitesmoke;
     text-shadow: 2px 2px red;
     /* animation: border 2.5s ease infinite forwards; */
 }
