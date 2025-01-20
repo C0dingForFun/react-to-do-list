@@ -22,7 +22,7 @@ input{
     padding:0.4em;
 }
 .addBtn{
-    background-color: rgb(0, 96, 0);;
+    background-color: red;
     transition:0.6s;
     border:none;
     border-radius:5px;
@@ -33,7 +33,7 @@ input{
 .addBtn:hover{
     cursor: pointer;
     color:white;
-    background-color: rgb(5, 193, 5);
+    background-color: rgb(237, 47, 47);
 }
 
 li{
