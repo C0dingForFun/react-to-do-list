@@ -40,7 +40,7 @@ export default function App(){
   <div className="container">
   <h1 className="header my-5">To-Do List</h1>
     <div>
-    <form onSubmit={handleSubmit} className="new-item-form"> 
+    <form onSubmit={handleSubmit} className="new-item-form my-2"> 
       <div className="form row">
           <label htmlFor="item text-center"><h2>New Item</h2></label>
           <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text" id="item" className = "my-2" />
@@ -48,14 +48,14 @@ export default function App(){
       </div>
     </form>
     </div>
-    <div>
-      <h1 className="header">To-Dos</h1>
-      <ul className="list">
+    <div className="my-2">
+      <h1 className="header my-5">To-Dos</h1>
+      <ul className="list my-5">
         {/* this is where we will map over the todos array and display each item; and anything inside braces will run as javascript code*/}
         {todos.length === 0 && "No To-Dos Yet"}
         {todos.map(todo =>{
           return (
-            <li key={todo.id} className="my-2">
+            <li key={todo.id} className="my-5">
               <label>
                 <input type="checkbox" checked={todo.completed} onChange={e => toggleTodo(todo.id, e.target.checked)} className="mx-1 mt-1"/>
                 {todo.title}
