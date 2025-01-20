@@ -35,6 +35,7 @@ export default function App(){
     })
   }
   
+
   return (
   <>
   <div className="container">
@@ -43,7 +44,18 @@ export default function App(){
     <form onSubmit={handleSubmit} className="new-item-form my-2"> 
       <div className="form row">
           <label htmlFor="item text-center"><h2>New Item</h2></label>
-          <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text" id="item" className = "my-2" placeholder="~ Do the dishes"/>
+          {/* <div> */}
+            <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text" id="item" className = "my-2" placeholder="~ Do the dishes"/>
+            {/* <select > */}
+              {/* <option>Select Task Priority</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <input type="text" /> */}
+          {/* </div> */}
           <button className="addBtn btn-success">Add Item</button>
       </div>
     </form>
@@ -60,6 +72,7 @@ export default function App(){
                 <input type="checkbox" checked={todo.completed} onChange={e => toggleTodo(todo.id, e.target.checked)} className="mx-1 mt-1"/>
                 {todo.title}
               </label>
+              <span>&#10031;</span>
               <button onClick={() => deleteTodo(todo.id)} className="btn btn-danger mx-1">Delete</button>
             </li>
           )
