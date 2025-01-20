@@ -43,7 +43,7 @@ export default function App(){
     <form onSubmit={handleSubmit} className="new-item-form my-2"> 
       <div className="form row">
           <label htmlFor="item text-center"><h2>New Item</h2></label>
-          <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text" id="item" className = "my-2" />
+          <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text" id="item" className = "my-2" placeholder="~ Do the dishes"/>
           <button className="addBtn btn-success">Add Item</button>
       </div>
     </form>
