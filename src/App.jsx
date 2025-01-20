@@ -45,7 +45,6 @@ export default function App(){
           <label htmlFor="item text-center"><h2>New Item</h2></label>
           <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text" id="item" className = "my-2" />
           <button className="addBtn btn-success">Add Item</button>
-        
       </div>
     </form>
     </div>
