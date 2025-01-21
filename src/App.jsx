@@ -6,6 +6,7 @@ import Modal from "./Modal.jsx"
 export default function App(){
   const [newItem, setNewItem] = useState("")
   const [priority, setPriority] = useState()
+  const [description, setDescription] = useState()
   const [todos, setTodos] = useState([]);
   const [modal, setModal] = React.useState(false)
   const [remove, setDelete] = React.useState(false)
@@ -48,12 +49,13 @@ export default function App(){
     setTodos((currentTodos)=>{
       return[
         ...currentTodos,
-        {id: crypto.randomUUID(), title: newItem, num:priority}
+        {id: crypto.randomUUID(), title: newItem, num:priority, desc: description}
       ]                                                  
     })
     
     setNewItem("");
     setPriority("");
+    setDescription("");
   }
   
 //   function toggleTodo(id, completed){
@@ -88,16 +90,16 @@ export default function App(){
             <div className="col-6">
               <select className="mx-2" value={priority} onChange={e => setPriority(e.target.value)}>
                 <option>Select Task Priority</option>
-                <option value={1} >1</option>
+                <option value={1}>1</option>
                 <option value={2}>2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
               </select>
             </div>
             </div>
           <div>
-            <textarea placeholder="Task Description" className=""></textarea>
+            <textarea placeholder="Task Description" value={description} onChange={e => setDescription(e.target.value)}></textarea>
           </div>
           <button className="addBtn">Add Item</button>
       </div>
@@ -116,15 +118,18 @@ export default function App(){
                 {todo.title}
               </label>
               <span className="mx-2">&#10031; {todo.num}</span>
+              {/* Description */}
               <button className="btn btn-primary" onClick={handleOpen}>View Description</button>
               <Modal isOpen={modal} onClose={handleClose}>
                 <>
                 <div>
                   <h1>Task Description</h1>
-                  <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus necessitatibus delectus eum nulla doloribus est eos ipsam, reprehenderit rem, dicta nam ex repellat recusandae quia iusto totam optio provident. Earum?</h4>
+                  <h4>{todo.desc}</h4>
                 </div>
                 </>
               </Modal>
+
+              {/* Edit */}
               <button onClick={handleEdtOpen} className="btn btn-success mx-2">Edit</button>
               <Modal isOpen={edit} onClose={handleEdtClose}>
                 <>
@@ -156,6 +161,8 @@ export default function App(){
                 </div>
                 </>
               </Modal>
+
+              {/* Delete */}
               <button onClick={handleDelOpen} className="btn btn-danger">Delete</button>
               <Modal isOpen={remove} onClose={handleDelClose}>
                 <>

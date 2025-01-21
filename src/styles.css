@@ -24,6 +24,10 @@ input{
     padding:0.3em;
 }
 
+input[placeholder]{
+    color:black;
+}
+
 .task{
     width:100%;
 }
@@ -78,17 +82,18 @@ span {
     padding:0.3em;
     margin-top:10px;
     border-radius:5px;
+    transition: 0.5s;
  }
 
-/* select:hover{
+select:hover{
     cursor: pointer;
     background-color: red;
     color:aliceblue;
-}
+} 
 
-select option span:hover{
-    cursor: pointer; */
-/* }  */
+/* select option span:hover{
+    cursor: pointer; 
+}   */
 
 /* animation: border 2.5s ease infinite forwards; */
 /* @keyframes border {
