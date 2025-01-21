@@ -49,7 +49,7 @@ export default function App(){
     setTodos((currentTodos)=>{
       return[
         ...currentTodos,
-        {id: crypto.randomUUID(), title: newItem, num:priority, desc: description}
+        {id: crypto.randomUUID(), title: newItem, prio:priority, desc: description}
       ]                                                  
     })
     
@@ -82,7 +82,7 @@ export default function App(){
     <div>
     <form onSubmit={handleSubmit} className="new-item-form my-2"> 
       <div className="form row">
-          <label htmlFor="item text-center"><h2>New Item</h2></label>
+          <label htmlFor="item text-center"><h2>New Task</h2></label>
             <div className="row mt-5">
             <div className="col-6">
               <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text" id="item" className = "my-2 task" placeholder="~ Do the dishes"/>
@@ -117,7 +117,7 @@ export default function App(){
                 {/* <input type="checkbox" checked={todo.completed} onChange={e => toggleTodo(todo.id, e.target.checked)} className="mx-1 mt-1"/> */}
                 {todo.title}
               </label>
-              <span className="mx-2">&#10031; {todo.num}</span>
+              <span className="mx-2">&#10031; {todo.prio}</span>
               {/* Description */}
               <button className="btn btn-primary" onClick={handleOpen}>View Description</button>
               <Modal isOpen={modal} onClose={handleClose}>
@@ -153,7 +153,7 @@ export default function App(){
                           </div>
                           </div>
                         <div>
-                          <textarea placeholder="Task Description" className=""></textarea>
+                          <textarea placeholder="Task Description"></textarea>
                         </div>
                         <button className="btn btn-success">Add Item</button>
                     </div>

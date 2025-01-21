@@ -24,7 +24,7 @@ input{
     padding:0.3em;
 }
 
-input[placeholder]{
+input::placeholder{
     color:black;
 }
 
@@ -37,6 +37,9 @@ textarea{
     border-radius:5px;
 }
 
+textarea::placeholder{
+    color:black;
+}
 .addBtn{
     /* width:300px; */
     background-color: red;
