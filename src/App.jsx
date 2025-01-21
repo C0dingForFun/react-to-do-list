@@ -90,7 +90,7 @@ export default function App(){
             </div>
             <div className="col-6">
               <select className="mx-2" value={priority} onChange={e => setPriority(e.target.value)}>
-                <option>Select Task Priority</option>
+                <option>--Select Task Priority</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
@@ -113,7 +113,7 @@ export default function App(){
       </div>
       <div className="col-4">
       <select className="sort">
-        <option value="">Sort</option>
+        <option value="">--Sort</option>
         <option value>Name</option>
         <option value>Priority</option>
       </select>
