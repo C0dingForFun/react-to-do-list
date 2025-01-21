@@ -121,7 +121,7 @@ export default function App(){
       </div>
     </div>
     <div className="my-2">
-      <h1 className="header my-5">To-Dos</h1>
+      <h1 className="header my-4">To-Dos</h1>
       <ul className="list my-4">
         {/* this is where we will map over the todos array and display each item; and anything inside braces will run as javascript code*/}
         {todos.length === 0 && "No To-Dos Yet"}
