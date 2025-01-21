@@ -40,6 +40,7 @@ textarea{
 textarea::placeholder{
     color:black;
 }
+
 .addBtn{
     /* width:300px; */
     background-color: red;
@@ -80,7 +81,7 @@ span {
     text-shadow: 2px 2px red;
 }
 
- select{
+select{
     width: 100%;
     padding:0.3em;
     margin-top:10px;
@@ -93,6 +94,16 @@ select:hover{
     background-color: red;
     color:aliceblue;
 } 
+
+.search{
+    width: 100%;
+}
+
+.sort{
+    position: relative;
+    bottom:10px;
+    padding:0.4em;
+}
 
 /* select option span:hover{
     cursor: pointer; 

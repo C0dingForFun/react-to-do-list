@@ -58,16 +58,16 @@ export default function App(){
     setDescription("");
   }
   
-  function toggleTodo(id, ){
-    setTodos((currentTodos)=>{
-      return currentTodos.map((todo)=>{
-        if(todo.id === id){
-          return {...todo}
-        }
-       return todo
-      })
-    })
- }
+//   function toggleTodo(id, ){
+//     setTodos((currentTodos)=>{
+//       return currentTodos.map((todo)=>{
+//         if(todo.id === id){
+//           return {...todo}
+//         }
+//        return todo
+//       })
+//     })
+//  }
 
  function deleteTodo(id){
   setTodos(currentTodos =>{
@@ -106,6 +106,20 @@ export default function App(){
       </div>
     </form>
     </div>
+    <div className="mt-5 row">
+      <div className="col-8">
+        <input type="text" placeholder="Search..." className="search"/>
+
+      </div>
+      <div className="col-4">
+      <select className="sort">
+        <option value="">Sort</option>
+        <option value>Name</option>
+        <option value>Priority</option>
+      </select>
+
+      </div>
+    </div>
     <div className="my-2">
       <h1 className="header my-5">To-Dos</h1>
       <ul className="list my-4">
@@ -119,9 +133,10 @@ export default function App(){
                 {todo.title}
               </label>
               <span className="mx-2">&#10031; {todo.prio}</span>
+
               {/* Description */}
-              <button className="btn btn-primary" onClick={handleOpen} onChange={() => toggleTodo(todo.id)}>View Description</button>
-              <Modal isOpen={modal} onClose={handleClose}>
+              <button className="btn btn-primary" onClick={handleOpen}>View Description</button>
+              <Modal isOpen={modal} onClose={handleClose} >
                 <>
                 <div>
                   <h1>Task Description</h1>
