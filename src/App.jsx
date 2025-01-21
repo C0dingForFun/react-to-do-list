@@ -86,10 +86,10 @@ export default function App(){
               <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text" id="item" className = "my-2 task" placeholder="~ Do the dishes"/>
             </div>
             <div className="col-6">
-              <select className="mx-2">
+              <select className="mx-2" value={priority} onChange={e => setPriority(e.target.value)}>
                 <option>Select Task Priority</option>
-                <option value={priority} onChange={e => setPriority(e.target.value)} >1</option>
-                <option value="2">2</option>
+                <option value={1} >1</option>
+                <option value={2}>2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
