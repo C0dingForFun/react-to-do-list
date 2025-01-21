@@ -2,42 +2,70 @@ import { useState } from "react";
 import React from "react";
 import "./styles.css";
 import Modal from "./Modal.jsx"
+
 export default function App(){
   const [newItem, setNewItem] = useState("")
+  const [priority, setPriority] = useState()
   const [todos, setTodos] = useState([]);
   const [modal, setModal] = React.useState(false)
+  const [remove, setDelete] = React.useState(false)
+  const [edit, setEdit] = React.useState(false)
 
+  // CRUD  
+
+// Description modal
   function handleClose(){
     setModal(false);
   }
 
   function handleOpen(){
-    setModal(true)
+    setModal(true);
+  }
+
+// Delete modal
+  function handleDelClose(){
+    setDelete(false);
+  }
+
+  function handleDelOpen(){
+    setDelete(true);
+  }
+
+// Edit modal
+  function handleEdtClose(e){
+    e.preventDefault()
+    setEdit(false);
+  }
+
+  function handleEdtOpen(e){
+    e.preventDefault()
+    setEdit(true);
   }
 
   function handleSubmit(e){
-    e.preventDefault() //this prevents the page from refreshing.
+    e.preventDefault() //this prevents the page from refreshing everytime I press the button.
 
     setTodos((currentTodos)=>{
       return[
         ...currentTodos,
-        {id: crypto.randomUUID(), title: newItem, completed:false}
-      ]
+        {id: crypto.randomUUID(), title: newItem, num:priority}
+      ]                                                  
     })
     
     setNewItem("");
+    setPriority("");
   }
   
-  function toggleTodo(id, completed){
-    setTodos((currentTodos)=>{
-      return currentTodos.map((todo)=>{
-        if(todo.id === id){
-          return {...todo, completed}
-        }
-       return todo
-      })
-    })
- }
+//   function toggleTodo(id, completed){
+//     setTodos((currentTodos)=>{
+//       return currentTodos.map((todo)=>{
+//         if(todo.id === id){
+//           return {...todo, completed}
+//         }
+//        return todo
+//       })
+//     })
+//  }
 
  function deleteTodo(id){
   setTodos(currentTodos =>{
@@ -55,12 +83,12 @@ export default function App(){
           <label htmlFor="item text-center"><h2>New Item</h2></label>
             <div className="row mt-5">
             <div className="col-6">
-              <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text" id="item" className = "my-2" placeholder="~ Do the dishes"/>
+              <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text" id="item" className = "my-2 task" placeholder="~ Do the dishes"/>
             </div>
             <div className="col-6">
               <select className="mx-2">
                 <option>Select Task Priority</option>
-                <option value="1">1</option>
+                <option value={priority} onChange={e => setPriority(e.target.value)} >1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -84,10 +112,10 @@ export default function App(){
           return (
             <li key={todo.id} className="my-5">
               <label>
-                <input type="checkbox" checked={todo.completed} onChange={e => toggleTodo(todo.id, e.target.checked)} className="mx-1 mt-1"/>
+                {/* <input type="checkbox" checked={todo.completed} onChange={e => toggleTodo(todo.id, e.target.checked)} className="mx-1 mt-1"/> */}
                 {todo.title}
               </label>
-              <span>&#10031;</span>
+              <span className="mx-2">&#10031; {todo.num}</span>
               <button className="btn btn-primary" onClick={handleOpen}>View Description</button>
               <Modal isOpen={modal} onClose={handleClose}>
                 <>
@@ -97,8 +125,46 @@ export default function App(){
                 </div>
                 </>
               </Modal>
-              <button className="btn btn-success mx-1">Edit</button>
-              <button onClick={() => deleteTodo(todo.id)} className="btn btn-danger">Delete</button>
+              <button onClick={handleEdtOpen} className="btn btn-success mx-2">Edit</button>
+              <Modal isOpen={edit} onClose={handleEdtClose}>
+                <>
+                <div className="mx-auto">
+                  <h1>Edit Item</h1>
+                  <form onSubmit={handleSubmit} className="new-item-form my-2"> 
+                    <div className="form row">
+                          <div className="row mt-5">
+                          <div className="col-6">
+                            <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text" id="item" className = "my-2 task" placeholder="~ Do the dishes"/>
+                          </div>
+                          <div className="col-6">
+                            <select className="mx-2">
+                              <option>Select Task Priority</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                            </select>
+                          </div>
+                          </div>
+                        <div>
+                          <textarea placeholder="Task Description" className=""></textarea>
+                        </div>
+                        <button className="btn btn-success">Add Item</button>
+                    </div>
+                  </form>
+                </div>
+                </>
+              </Modal>
+              <button onClick={handleDelOpen} className="btn btn-danger">Delete</button>
+              <Modal isOpen={remove} onClose={handleDelClose}>
+                <>
+                <div className="mx-auto">
+                  <h1>Are you sure?</h1>
+                  <button onClick={() => deleteTodo(todo.id)} className="btn btn-danger">Delete</button>
+                </div>
+                </>
+              </Modal>
             </li>
           )
         })}  

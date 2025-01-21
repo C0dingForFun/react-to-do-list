@@ -21,7 +21,7 @@ const Modal = ({ isOpen, onClose, children }) => {
                     position: "absolute",
                     border: "2px solid #000",
                     borderRadius: "20px",
-                    backgroundColor: "rgb(0,0,0,0.5)",
+                    backgroundColor: "rgb(0, 0, 0, 0.5)",
                     boxShadow: "2px solid black",
                     height: "auto",
                     width: 500,

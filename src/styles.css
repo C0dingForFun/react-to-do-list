@@ -6,7 +6,6 @@ body{
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-    color:black;
 }
 
 .container{
@@ -17,13 +16,16 @@ body{
     width:50vw;
     margin: auto;
     border-radius:20px;
-    color: whitesmoke;
-    text-shadow: 2px 2px red;
+    color: black;
 }
 
 input{
     border-radius:5px;
     padding:0.3em;
+}
+
+.task{
+    width:100%;
 }
 
 textarea{
@@ -68,12 +70,16 @@ li{
 span {
     font-size:23px;
     color:yellow;
+    text-shadow: 2px 2px red;
 }
 
  select{
+    width: 100%;
     padding:0.3em;
+    margin-top:10px;
     border-radius:5px;
  }
+
 /* select:hover{
     cursor: pointer;
     background-color: red;
