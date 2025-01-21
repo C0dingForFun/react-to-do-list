@@ -58,22 +58,23 @@ export default function App(){
     setDescription("");
   }
   
-//   function toggleTodo(id, completed){
-//     setTodos((currentTodos)=>{
-//       return currentTodos.map((todo)=>{
-//         if(todo.id === id){
-//           return {...todo, completed}
-//         }
-//        return todo
-//       })
-//     })
-//  }
+  function toggleTodo(id, ){
+    setTodos((currentTodos)=>{
+      return currentTodos.map((todo)=>{
+        if(todo.id === id){
+          return {...todo}
+        }
+       return todo
+      })
+    })
+ }
 
  function deleteTodo(id){
   setTodos(currentTodos =>{
     return currentTodos.filter((todo) => todo.id !== id)
     })
   }
+
   
   return (
   <>
@@ -119,7 +120,7 @@ export default function App(){
               </label>
               <span className="mx-2">&#10031; {todo.prio}</span>
               {/* Description */}
-              <button className="btn btn-primary" onClick={handleOpen}>View Description</button>
+              <button className="btn btn-primary" onClick={handleOpen} onChange={() => toggleTodo(todo.id)}>View Description</button>
               <Modal isOpen={modal} onClose={handleClose}>
                 <>
                 <div>
