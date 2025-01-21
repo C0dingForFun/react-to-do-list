@@ -8,23 +8,31 @@ body{
     overflow-x: hidden;
     color:black;
 }
+
 .container{
-    display:grid;
+    display:flex;
+    flex-direction: column;
     place-content: center;
     padding-top:5vh;
-    width:60vw;
+    width:50vw;
     margin: auto;
     border-radius:20px;
     color: whitesmoke;
     text-shadow: 2px 2px red;
-    /* animation: border 2.5s ease infinite forwards; */
 }
+
 input{
     border-radius:5px;
     padding:0.3em;
 }
+
+textarea{
+    width:100%;
+    border-radius:5px;
+}
+
 .addBtn{
-    /* width:50vw; */
+    /* width:300px; */
     background-color: red;
     transition:0.6s;
     border:none;
@@ -33,10 +41,23 @@ input{
     color:aliceblue;
     margin-bottom:4vh;
 }
+
 .addBtn:hover{
     cursor: pointer;
     color:white;
-    background-color: rgb(237, 47, 47);
+    background-color: black;
+}
+
+.descBtn{
+    background-color: red;
+    transition:0.6s;
+    border:none;
+    border-radius:5px;
+    color:aliceblue;
+}
+
+.descBtn:hover{
+    background-color: black;
 }
 
 li{
@@ -49,6 +70,21 @@ span {
     color:yellow;
 }
 
+ select{
+    padding:0.3em;
+    border-radius:5px;
+ }
+/* select:hover{
+    cursor: pointer;
+    background-color: red;
+    color:aliceblue;
+}
+
+select option span:hover{
+    cursor: pointer; */
+/* }  */
+
+/* animation: border 2.5s ease infinite forwards; */
 /* @keyframes border {
     0%{
         border:solid 2px aliceblue;
