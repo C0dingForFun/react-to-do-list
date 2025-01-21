@@ -91,7 +91,10 @@ export default function App(){
               <button className="btn btn-primary" onClick={handleOpen}>View Description</button>
               <Modal isOpen={modal} onClose={handleClose}>
                 <>
-                  <h1>testing</h1>
+                <div>
+                  <h1>Task Description</h1>
+                  <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus necessitatibus delectus eum nulla doloribus est eos ipsam, reprehenderit rem, dicta nam ex repellat recusandae quia iusto totam optio provident. Earum?</h4>
+                </div>
                 </>
               </Modal>
               <button className="btn btn-success mx-1">Edit</button>
